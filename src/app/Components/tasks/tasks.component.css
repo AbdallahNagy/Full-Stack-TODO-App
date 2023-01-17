@@ -1,3 +1,6 @@
+h2 {
+    color: var(--brown);
+}
 
 .tasks ul {
     padding: 0px;
@@ -19,7 +22,7 @@
 
 .icons *{
     padding: 4px;
-    color: var(--white)
+    color: var(--brown);
 }
 
 .icons a {
