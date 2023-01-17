@@ -1,8 +1,8 @@
 
-.container {
+.main-container {
     display: flex;
     width: 80%;
-    height: 80%;
+    height: 100%;
     background-color: var(--dark);
     border-radius: 10px;
     overflow: hidden;
@@ -23,4 +23,10 @@ app-lists {
 
 app-tasks {
     width: 70%;
+}
+
+@media (max-width: 870px) {
+    .main-container {
+        width: 100%;
+    }
 }
