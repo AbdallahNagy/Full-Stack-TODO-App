@@ -1,0 +1,33 @@
+.list-groups-header {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.btn {
+    width: 50%;
+    margin: 8px;
+    background-color: var(--dark);
+    color: var(--white);
+
+}
+
+.list-groups-body ul {
+    padding: 0;
+}
+
+.list-groups-body li {
+    list-style-type: none;
+    background-color: var(--dark);
+    border-radius: 10px;
+    margin: 8px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.new-list-btn {
+    position: absolute;
+    bottom: 50px;
+    width: 12rem;
+    height: 3rem;
+}

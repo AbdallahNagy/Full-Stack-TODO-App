@@ -1,0 +1,27 @@
+
+.tasks ul {
+    padding: 0px;
+}
+
+.tasks ul li {
+    list-style: none;
+    background-color: var(--dark);
+    border-radius: 10px;
+    margin: 8px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons *{
+    padding: 4px;
+    color: var(--white)
+}
+
+.icons a {
+    text-decoration: none;
+}
