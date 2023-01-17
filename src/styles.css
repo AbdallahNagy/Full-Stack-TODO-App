@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+/* default theme */
+:root {
+    --dark: #2C3639;
+    --gray: #3F4E4F;
+    --brown: #A27B5C;
+    --white: #DCD7C9;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: var(--white);
+    color: var(--brown);
+}
