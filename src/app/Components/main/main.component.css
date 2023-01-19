@@ -1,7 +1,7 @@
 
 .main-container {
     display: flex;
-    width: 80%;
+    min-width: 80%;
     height: 100%;
     background-color: var(--dark);
     border-radius: 10px;
@@ -10,7 +10,7 @@
 
 app-lists,
 app-tasks {
-    height: 100%;
+    height: auto;
     margin: 8px;
     padding: 8px;
     background-color: var(--gray);
@@ -30,3 +30,21 @@ app-tasks {
         width: 100%;
     }
 }
+
+@media (max-width: 670px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    app-lists {
+        width: 100%;
+    }
+
+    app-tasks {
+        width: 100%;
+    }
+}
+

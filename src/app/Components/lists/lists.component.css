@@ -30,9 +30,11 @@ h2 {
     cursor: pointer;
 }
 
+.new-list-div {
+    text-align: center;
+}
+
 .new-list-btn {
-    position: absolute;
-    bottom: 50px;
     width: 12rem;
     height: 3rem;
 }
