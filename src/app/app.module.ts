@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from "./Components/main/main.component";
 import { ListsComponent } from './Components/lists/lists.component';
 import { TasksComponent } from './Components/tasks/tasks.component';
+import { RegisterComponent } from './Components/register/register.component';
 
 const root: Routes = [
   // {path: '/', component:}
@@ -17,7 +18,8 @@ const root: Routes = [
         AppComponent,
         MainComponent,
         ListsComponent,
-        TasksComponent
+        TasksComponent,
+        RegisterComponent
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -1,9 +1,9 @@
+const path = require('path');
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('server works');
-});
+app.use(express.static(path.join(__dirname, '../dist/client')));
+
 
 app.listen(3000, () => {
     console.log("server starting on port 3000");
