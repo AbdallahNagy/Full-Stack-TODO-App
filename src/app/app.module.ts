@@ -8,6 +8,8 @@ import { MainComponent } from "./Components/main/main.component";
 import { ListsComponent } from './Components/lists/lists.component';
 import { TasksComponent } from './Components/tasks/tasks.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { LoginComponent } from './Components/login/login.component';
+import { SignupComponent } from './Components/signup/signup.component';
 
 const root: Routes = [
   // {path: '/', component:}
@@ -19,7 +21,9 @@ const root: Routes = [
         MainComponent,
         ListsComponent,
         TasksComponent,
-        RegisterComponent
+        RegisterComponent,
+        LoginComponent,
+        SignupComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
