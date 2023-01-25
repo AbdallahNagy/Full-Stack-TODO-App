@@ -1,7 +1,7 @@
 const express = require('express')
 const todoRouter = express.Router()
 
-const { Todo } = require('../models/models')
+const { Todo } = require('../models')
 
 //create todo
 todoRouter.post('/', async (req, res, next) => {
