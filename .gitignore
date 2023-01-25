@@ -6,6 +6,11 @@
 /out-tsc
 /bazel-out
 
+#SERVER
+/app/node_modules/
+/app/.vscode/
+.env
+
 # Node
 /node_modules
 npm-debug.log
