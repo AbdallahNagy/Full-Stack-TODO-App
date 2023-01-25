@@ -2,7 +2,7 @@ const express = require('express')
 const userRouter = express.Router()
 
 const bcrypt = require('bcrypt')
-const { User } = require('../models/todos')
+const { User } = require('../models/models')
 const { userValidation } = require('../validations')
 const { comparePasswd, signUserToken, authorizeUser } = require('../userHelpers')
 const customError = require('../ErrorHandling')
