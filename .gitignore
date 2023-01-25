@@ -7,9 +7,9 @@
 /bazel-out
 
 #SERVER
-/app/node_modules/
-/app/.vscode/
-.env
+/server-side/node_modules/
+/server-side/.vscode/
+/server-side/.env
 
 # Node
 /node_modules
