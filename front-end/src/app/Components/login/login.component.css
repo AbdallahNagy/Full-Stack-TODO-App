@@ -1,8 +1,15 @@
+.login {
+    height: 100vh;
+    display: grid;
+    /* place-items: center; */
+}
+
 .login-container {
+    place-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 40%;
     height: 50%;
     border-radius: 10px;
     background-color: var(--gray);
