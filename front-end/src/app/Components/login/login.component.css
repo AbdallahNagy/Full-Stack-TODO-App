@@ -1,0 +1,36 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 50%;
+    border-radius: 10px;
+    background-color: var(--gray);
+}
+
+form {
+    width: 70%;
+    height: 70%;
+}
+
+form * {
+    font-weight: bold;
+    font-size: large;
+}
+
+input, label {
+    margin: 4px;
+}
+
+.submitbtn {
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+input[type='submit'] {
+    background-color: var(--brown);
+    border: 0
+}
+
