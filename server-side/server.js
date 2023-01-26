@@ -7,7 +7,7 @@ port = 3000
 const todoRouter = require('./routers/todos.js')
 const userRouter = require('./routers/users.js')
 
-app.use(express.static('public'))
+app.use(express.static('../dist/client'))
 app.use(express.json())
 
 app.use('/todos', todoRouter)
