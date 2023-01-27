@@ -1,7 +1,6 @@
 .login {
     height: 100vh;
     display: grid;
-    /* place-items: center; */
 }
 
 .login-container {
@@ -29,11 +28,17 @@ input, label {
     margin: 4px;
 }
 
-.submitbtn {
+.submitbtn,
+.signupalter {
     display: flex;
     height: 50px;
     justify-content: center;
     align-items: flex-end;
+}
+
+.signupalter a {
+    text-decoration: none;
+    color: var(--brown)
 }
 
 input[type='submit'] {

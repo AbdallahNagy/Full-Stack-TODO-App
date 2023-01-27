@@ -1,5 +1,6 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
+const cors = require('cors')
 const express = require('express')
 const app = express()
 port = 3000
@@ -7,6 +8,7 @@ port = 3000
 const todoRouter = require('./routers/todos.js')
 const userRouter = require('./routers/users.js')
 
+app.use(cors())
 app.use(express.json())
 
 app.use('/todos', todoRouter)

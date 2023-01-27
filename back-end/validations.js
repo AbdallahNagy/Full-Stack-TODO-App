@@ -7,7 +7,7 @@ const schema = Joi.object({
         .required(),
 
     email: Joi.string()
-        // .required()
+        .required()
         .email(),
 
     password: Joi.string()

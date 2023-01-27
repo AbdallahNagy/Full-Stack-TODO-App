@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -34,6 +35,7 @@ const root: Routes = [
         BrowserModule,
         FormsModule,
         RouterModule.forRoot(root),
+        HttpClientModule
     ]
 })
 export class AppModule { }
