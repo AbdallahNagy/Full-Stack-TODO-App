@@ -17,4 +17,11 @@ export class HttpService {
     return this.http.post(this.baseURL + 'users/', user, { headers })
   }
 
+  login(user: any) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+    return this.http.post(this.baseURL + 'users/login/', user, { headers })
+  }
+
 }

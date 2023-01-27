@@ -4,13 +4,13 @@
         <form action="post" class="form-group">
 
             <label for="email">Email</label>
-            <input type="email" id="email" class="form-control">
+            <input #email type="email" id="email" class="form-control">
 
             <label for="password">Password</label>
-            <input type="password" id="password" class="form-control">
+            <input #password type="password" id="password" class="form-control">
 
             <div class="submitbtn">
-                <input routerLink="/home" type="submit" value="Login" class="btn btn-primary">
+                <input routerLink="/home" (click)="signin(email.value, password.value)" type="submit" value="Login" class="btn btn-primary">
             </div>
 
             <div class="signupalter">
