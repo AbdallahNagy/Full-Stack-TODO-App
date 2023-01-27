@@ -9,17 +9,23 @@ const todoSchema = new mongoose.Schema({
     }
 })
 
+const listsSchema = new mongoose.Schema({
+    "title": String
+})
+
 const userSchema = new mongoose.Schema({
     "username": String,
     "email": String,
-    "password": String    
+    "password": String
 })
 
 // models
 const Todo = new mongoose.model('Todo', todoSchema)
 const User = new mongoose.model('User', userSchema)
+const List = new mongoose.model('List', listsSchema)
 
-module.exports ={
+module.exports = {
     Todo,
-    User
+    User,
+    List
 }

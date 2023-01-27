@@ -6,12 +6,14 @@ const app = express()
 port = 3000
 
 const todoRouter = require('./routers/todos.js')
+const listRouter = require('./routers/lists.js')
 const userRouter = require('./routers/users.js')
 
 app.use(cors())
 app.use(express.json())
 
 app.use('/todos', todoRouter)
+app.use('/lists', listRouter)
 app.use('/users', userRouter)
 
 // error middleware

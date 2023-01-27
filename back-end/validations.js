@@ -1,6 +1,6 @@
 const Joi = require('joi')
 
-const schema = Joi.object({
+const userSchema = Joi.object({
     username: Joi.string()
         .min(3)
         .max(30)
@@ -16,7 +16,7 @@ const schema = Joi.object({
 
 const userValidation = async (req, res, next) => {
     try {
-        await schema.validateAsync(req.body)
+        await userSchema.validateAsync(req.body)
         next()
     } catch (error) {
         error.statusCode = 422
