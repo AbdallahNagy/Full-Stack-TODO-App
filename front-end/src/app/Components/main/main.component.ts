@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
+  tasks:any
 
+  getTasks(tasks:any) {
+    this.tasks = tasks
+  }
 }

@@ -6,7 +6,8 @@ const todoSchema = new mongoose.Schema({
     "status": {
         "type": String,
         "enum": ["todo", "in-progress", "done"]
-    }
+    },
+    "list_id": String
 })
 
 const listsSchema = new mongoose.Schema({

@@ -3,13 +3,47 @@ const todoRouter = express.Router()
 
 const { Todo } = require('../models')
 
+//create todo by list id
+todoRouter.post('/:id', async (req, res, next) => {
+    try {
+        const { id } = req.params
+        const { title, status } = req.body
+
+        const todoItem = new Todo({
+            title,
+            status,
+            list_id: id
+        })
+        await todoItem.save()
+        res.send(todoItem)
+
+    } catch (err) {
+        next(err)
+    }
+})
+
+// get all todos by list id
+todoRouter.get('/listId/:id', async (req, res, next) => {
+    try {
+        const { id } = req.params
+
+        const todos = await Todo.find({ list_id: id })
+        res.send(todos)
+
+    } catch (error) {
+        next(error)
+    }
+
+})
+
 //create todo
 todoRouter.post('/', async (req, res, next) => {
     try {
         const { title, status } = req.body
         const todoItem = new Todo({
             title,
-            status
+            status,
+            list_id
         })
         await todoItem.save()
         res.send(todoItem)

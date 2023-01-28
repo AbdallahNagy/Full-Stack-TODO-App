@@ -1,34 +1,15 @@
 <div class="container">
     <h2>Tasks</h2>
     <div class="tasks">
-        <ul>
+        <ul *ngFor="let t of tasks">
 
             <li class="task-item">
-                <span>task 1</span>
+                <span>{{t.title}}</span>
                 <div class="icons">
                     <a href="#"><i class="fa-solid fa-trash"></i></a>
                     <a href="#"><i class="fa-solid fa-wrench"></i></a>
                 </div>
-
             </li>
-            <li class="task-item">
-                <span>task 2</span>
-                <div class="icons">
-                    <a href="#"><i class="fa-solid fa-trash"></i></a>
-                    <a href="#"><i class="fa-solid fa-wrench"></i></a>
-
-                </div>
-
-            </li>
-            <li class="task-item">
-                <span>task 3</span>
-                <div class="icons">
-                    <a href="#"><i class="fa-solid fa-trash"></i></a>
-                    <a href="#"><i class="fa-solid fa-wrench"></i></a>
-                </div>
-
-            </li>
-
         </ul>
     </div>
 </div>

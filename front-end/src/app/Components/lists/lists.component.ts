@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { HttpService } from 'src/app/http.service';
 
 @Component({
@@ -8,6 +8,9 @@ import { HttpService } from 'src/app/http.service';
 })
 export class ListsComponent {
   lists:any
+  tasks:any
+
+  @Output() getTasksEvent = new EventEmitter()
 
   constructor(private http:HttpService){}
 
@@ -20,5 +23,19 @@ export class ListsComponent {
         console.log(err)
       }
     })
+  }
+
+  showTasks(id:any) {
+    this.http.getTasks(id).subscribe({
+      next: (res) => {
+        this.tasks = res
+        console.log(res)
+      },
+      error: (err)=> {
+        console.log(err);
+      }
+    })
+
+    this.getTasksEvent.emit(this.tasks)
   }
 }

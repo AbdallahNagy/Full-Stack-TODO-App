@@ -29,4 +29,8 @@ export class HttpService {
     return this.http.get(this.baseURL+ 'lists/')
   }
 
+  getTasks(id:any) {
+    return this.http.get(this.baseURL+`todos/listId/${id}`)
+  }
+
 }

@@ -34,8 +34,6 @@ const authorizeUser = async (req, res, next) => {
         next(customError(403, 'unauthorized'))
     }
 }
-//63d0c6effeeee87e00b2f14b
-//63d17122071c319f17e64984
 
 module.exports = {
     comparePasswd,

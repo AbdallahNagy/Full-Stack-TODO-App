@@ -6,7 +6,7 @@
     </div>
     <div class="list-groups-body">
         <ul *ngFor="let l of lists">
-            <li>{{l.title}}</li>
+            <li (click)="showTasks(l._id)">{{l.title}}</li>
         </ul>
     </div>
     <div class="new-list-div">
