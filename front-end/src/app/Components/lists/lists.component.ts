@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpService } from 'src/app/http.service';
 
 @Component({
   selector: 'app-lists',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./lists.component.css']
 })
 export class ListsComponent {
+  lists:any
 
+  constructor(private http:HttpService){}
+
+  getLists(){
+    this.http.getAllLists().subscribe({
+      next:(res) => {
+        this.lists = res
+      },
+      error:(err) => {
+        console.log(err)
+      }
+    })
+  }
 }

@@ -32,7 +32,7 @@ listRouter.get('/', async (req, res, next) => {
 })
 
 // edit list by id 
-listRouter.patch('/:id', async(req, res, next) => {
+listRouter.patch('/:id', async (req, res, next) => {
     try {
         const { id } = req.params
         const { title } = req.body
@@ -43,6 +43,19 @@ listRouter.patch('/:id', async(req, res, next) => {
 
         await List.findByIdAndUpdate(id, updatedList)
         res.send('updated successfully')
+
+    } catch (error) {
+
+    }
+})
+
+// delete list by id
+listRouter.delete('/:id', async (req, res, next) => {
+    try {
+        const { id } = req.params
+
+        await List.findByIdAndDelete(id)
+        res.send('deleted successfully')
 
     } catch (error) {
 

@@ -10,6 +10,7 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
+  //sign up
   createUser(user: any) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
@@ -22,6 +23,10 @@ export class HttpService {
       'Content-Type': 'application/json'
     })
     return this.http.post(this.baseURL + 'users/login/', user, { headers })
+  }
+
+  getAllLists() {
+    return this.http.get(this.baseURL+ 'lists/')
   }
 
 }
