@@ -3,6 +3,7 @@ const listRouter = express.Router()
 
 const { List } = require('../models')
 
+// create list
 listRouter.post('/', async (req, res, next) => {
     try {
         const { title } = req.body
@@ -24,9 +25,27 @@ listRouter.get('/', async (req, res, next) => {
     try {
         const lists = await List.find({})
         res.send(lists)
-        
+
     } catch (error) {
         next(error)
+    }
+})
+
+// edit list by id 
+listRouter.patch('/:id', async(req, res, next) => {
+    try {
+        const { id } = req.params
+        const { title } = req.body
+
+        const updatedList = {
+            title
+        }
+
+        await List.findByIdAndUpdate(id, updatedList)
+        res.send('updated successfully')
+
+    } catch (error) {
+
     }
 })
 
