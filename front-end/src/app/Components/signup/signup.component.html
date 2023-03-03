@@ -1,26 +1,31 @@
 <div class="signup">
     <div class="signup-container">
 
-        <form action="post" class="form-group">
+        <form [formGroup]="regForm" (ngSubmit)="onSubmit()" class="form-group">
             <label for="name">User Name</label>
-            <input #name type="text" id="name" class="form-control">
+            <input formControlName="username" type="text" id="name" class="form-control">
+            <div class="error" *ngIf="!usernameValid && regForm.controls['email'].touched">invalid username</div>
 
             <label for="email">Email</label>
-            <input #email type="email" id="email" class="form-control">
+            <input formControlName="email" type="email" id="email" class="form-control">
+            <div class="error" *ngIf="!emailValid && regForm.controls['email'].touched">invalid email format</div>
 
             <label for="password">Password</label>
-            <input #passwd type="password" id="password" class="form-control">
+            <input formControlName="password" type="password" id="password" class="form-control">
+            <div class="error" *ngIf="!passwordValid && regForm.controls['password'].touched">weak password</div>
 
             <label for="repeatpw">Repeat Password</label>
-            <input type="password" id="repeatpw" class="form-control">
+            <input formControlName="repeatPassword" type="password" id="repeatpw" class="form-control">
+            <div class="error" *ngIf="!passwordMatch && regForm.controls['repeatPassword'].touched">password doesn't match</div>
 
             <div class="submitbtn">
-                <input type="submit" value="Sign Up" class="btn btn-primary" routerLink="/home" (click)="addUser(name.value, email.value, passwd.value)">
+                <input type="submit" value="Sign Up" class="btn btn-primary">
             </div>
 
             <div class="loginalter">
                 <span>already have account?</span><a routerLink="/login">login</a>
             </div>
+
         </form>
 
     </div>

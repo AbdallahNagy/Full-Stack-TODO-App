@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpService } from 'src/app/http.service';
 
 @Component({
@@ -7,7 +8,9 @@ import { HttpService } from 'src/app/http.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private http: HttpService) { }
+
+  token: any
+  constructor(private http: HttpService, private _router: Router) { }
 
   signin(email: any, password: any) {
     console.log(email)
@@ -20,7 +23,9 @@ export class LoginComponent implements OnInit {
 
     this.http.login(user).subscribe({
       next: (res) => {
-        console.log(res)
+        localStorage.setItem('token', JSON.stringify(res))
+        this.token = JSON.parse(localStorage.getItem('token') as string).accessToken
+        this._router.navigate(['/home'])
       },
       error: (err) => {
         console.log(err)
@@ -29,6 +34,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('oninit fired')
 
+    if (localStorage.getItem('token')) {
+      console.log(localStorage.getItem('token'))
+      this.http.loginWithToken(localStorage.getItem('token'))
+
+    }
   }
 }

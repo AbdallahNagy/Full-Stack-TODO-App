@@ -1,42 +1,37 @@
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const util = require('util')
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const util = require("util");
 
-const signAsync = util.promisify(jwt.sign)
-const verifyAsync = util.promisify(jwt.verify)
+const signAsync = util.promisify(jwt.sign);
+const verifyAsync = util.promisify(jwt.verify);
 
-const customError = require('./ErrorHandling')
+const customError = require("./ErrorHandling");
 
-const secretKey = process.env.SECRET_KEY || "kdeimco"
+const secretKey = process.env.SECRET_KEY || "kdeimco";
 
 const comparePasswd = async (password, hash) => {
-    const isMathc = await bcrypt.compare(password, hash)
-    if (!isMathc) throw customError(401, 'invalid email or password')
-}
+    const isMath = await bcrypt.compare(password, hash);
+    if (!isMath) throw customError(401, "invalid email or password");
+};
 
-const signUserToken = (id) =>
-    signAsync({ id }, secretKey)
+// grand token to user
+const signUserToken = (id) => signAsync({ id }, secretKey);
 
-// (middleware) verify authorize user 
+// verify authorize user (middleware)
 const authorizeUser = async (req, res, next) => {
-    const { id } = req.params
-    const { authorization: token} = req.headers
-    
+    // const { id } = req.params
+    const { authorization: token } = req.headers;
     try {
-        // if all good it will return payload
-        // otherwise will throw error
-        const payload = await verifyAsync(token, secretKey)
-        console.log(payload)
-        if(payload.id !== id) throw Error('')
-        next()
-
+        const payload = await verifyAsync(token, secretKey);
+        req.params.id = payload.id;
+        next();
     } catch (error) {
-        next(customError(403, 'unauthorized'))
+        next(customError(403, "unauthorized"));
     }
-}
+};
 
 module.exports = {
     comparePasswd,
     signUserToken,
-    authorizeUser
-}
+    authorizeUser,
+};

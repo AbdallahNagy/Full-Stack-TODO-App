@@ -25,12 +25,29 @@ export class HttpService {
     return this.http.post(this.baseURL + 'users/login/', user, { headers })
   }
 
-  getAllLists() {
-    return this.http.get(this.baseURL+ 'lists/')
+  //check if user already has token
+  loginWithToken(token: any) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+    console.log(headers)
+    return this.http.post(this.baseURL, token, { headers })
   }
 
-  getTasks(id:any) {
-    return this.http.get(this.baseURL+`todos/listId/${id}`)
+  getAllLists() {
+    return this.http.get(this.baseURL + 'lists/')
   }
+
+  getTasks(id: any) {
+    return this.http.get(this.baseURL + `todos/listId/${id}`)
+  }
+
+  // testToken(token: any) {
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'authorization': token
+  //   })
+  //   return this.http.get(this.baseURL + 'test', { headers })
+  // }
 
 }

@@ -19,10 +19,14 @@ app.use('/users', userRouter)
 // error middleware
 app.use((err, req, res, next) => {
     if(!err.statusCode) err.message = 'something went wrong'
-    res.status(err.statusCode || 500).send(err.message) 
+    res.status(err.statusCode || 500).send(err.message)
 })
 
-mongoose.connect('mongodb://127.0.0.1:27017/db')
+mongoose.set('strictQuery', true)
+mongoose.connect('mongodb://127.0.0.1:27017/db', err => {
+    if(err) console.log(err)
+    else console.log("DATABASE CONNECTED SUCCESSFULLY")
+})
 app.listen(port, () =>{
-    console.log('SERVER CONNECTED ON PORT 3000')
+    console.log(`SERVER CONNECTED ON PORT ${port}`)
 })

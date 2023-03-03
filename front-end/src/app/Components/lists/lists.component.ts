@@ -7,35 +7,49 @@ import { HttpService } from 'src/app/http.service';
   styleUrls: ['./lists.component.css']
 })
 export class ListsComponent {
-  lists:any
-  tasks:any
+  lists: any
+  tasks: any
+  // token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZDQzOTE4NzUwMzhhNDQzN2E1YmYxOCIsImlhdCI6MTY3NjIyOTE1MX0.csbcNOVKAsoLrau9YjYPYyJKRd7c4MbxomlunUKVkrM'
 
   @Output() getTasksEvent = new EventEmitter()
 
-  constructor(private http:HttpService){}
+  constructor(private http: HttpService) { }
 
-  getLists(){
+  // token test
+  // test(){
+  //   this.http.testToken(this.token).subscribe({
+  //     next: (res) => {
+  //       console.log(res)
+  //     },
+  //     error: (err) => {
+  //       console.log(err)
+  //     }
+  //   })
+  // }
+
+  getLists() {
     this.http.getAllLists().subscribe({
-      next:(res) => {
+      next: (res) => {
         this.lists = res
       },
-      error:(err) => {
+      error: (err) => {
         console.log(err)
       }
     })
   }
 
-  showTasks(id:any) {
+  showTasks(id: any) {
     this.http.getTasks(id).subscribe({
       next: (res) => {
         this.tasks = res
-        console.log(res)
+        this.getTasksEvent.emit(this.tasks) // why when i try to put this line outside next and 
+                                            // inside the same func doesn't work?
       },
-      error: (err)=> {
+      error: (err) => {
         console.log(err);
       }
     })
 
-    this.getTasksEvent.emit(this.tasks)
   }
+
 }

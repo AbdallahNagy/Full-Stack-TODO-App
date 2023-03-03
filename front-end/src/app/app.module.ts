@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from "./Components/main/main.component";
 import { ListsComponent } from './Components/lists/lists.component';
 import { TasksComponent } from './Components/tasks/tasks.component';
@@ -35,7 +35,8 @@ const root: Routes = [
         BrowserModule,
         FormsModule,
         RouterModule.forRoot(root),
-        HttpClientModule
+        HttpClientModule,
+        ReactiveFormsModule
     ]
 })
 export class AppModule { }

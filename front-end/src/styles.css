@@ -1,10 +1,20 @@
 /* default theme */
+
 :root {
     --dark: #2C3639;
     --gray: #3F4E4F;
     --brown: #A27B5C;
     --white: #DCD7C9;
 }
+
+/*
+theme
+------
+#2B2E4A
+#E84545
+#903749
+#53354A
+*/
 
 * {
     box-sizing: border-box;
@@ -18,4 +28,3 @@ body {
     background-color: var(--brown);
     color: var(--white);
 }
-
